@@ -1,0 +1,7 @@
+__pycache__/
+*.xlsx
+news/
+newspaper.jpg
+test.html
+test_test.html
+~$* 
