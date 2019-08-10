@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Historic newspaper articles</title>
+<meta charset="UTF-8">
+</head>
+<style>
+th {
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:25px;
+	padding-right:40px;
+}
+td {
+	padding-right:40px;
+}
+.footer {
+	position:fixed;
+	width:100%;
+	bottom: 0;
+	padding-bottom:20px;
+}
+	
+</style>
+<body style="background-color:white;">
+<script type="text/javascript" src="interface.js"></script>
+<br />
+city:&nbsp;<select name="city">
+	<option value="all">all</option>
+	<option value="Dordrecht">Dordrecht</option>
+	<option value="Rotterdam">Rotterdam</option>
+	<option value="Utrecht">groningen</option>
+	<option value="Haarlem">Haarlem</option>
+	<option value="Den Haag">Den Haag</option>
+	<option value="Leeuwarden">Leeuwarden</option>
+</select>
+&nbsp;paper:&nbsp;<select name="paper">
+	<option value="all">all</option>
+	<option value="hollandsch nieuwsblad">hollandsch nieuwsblad</option>
+	<option value="bataafsche staats-courant">bataafsche staats-courant</option>
+	<option value="agrarisch nieuwsblad">agrarisch nieuwsblad</option>
+	<option value="dagelijksche beurscourant">dagelijksche beurscourant</option>
+</select>
+&nbsp;topic:&nbsp;<select name="topic">
+	<option value="all">all</option>
+	<option value="opinion">opinion</option>
+	<option value="nature">nature</option>
+	<option value="recent events">recent events</option>
+	<option value="finance">finance</option>
+</select>
+&nbsp;from:&nbsp;<input type="number" max="1943" name="from" value="1794">
+&nbsp;to:&nbsp;<input type="number" min="1794" name="to" value="1943"> <br /><br />
+key words:&nbsp;<input type="text" name="keywords" value="key words to be matched in articles" size="60" 
+onfocus="this.value=''">
+&nbsp;sort by:&nbsp;<select name="sort" title="sort articles on this value">
+	<option value="paper">paper</option>
+	<option value="city">city</option>
+	<option value="year">year</option>
+	<option value="topic">topic</option>
+</select>
+&nbsp;order:&nbsp;<select name="order" title="sort high to low or vice versa">
+	<option value="high-low">increasing</option>
+	<option value="low-high">decreasing</option>
+</select>
+&nbsp;<button type="button" onclick="makeRow()">search</button>
+&nbsp;<button title="reload excel file">refresh</button>
+
+<hr>
+<table id="av">
+	<tr>
+		<th>paper</th>
+		<th>city</th>
+		<th>year</th>
+		<th>topic</th>
+		<th>matched words</th>
+	</tr>
+	<tr>
+		<td title="text">Agrarisch nieuwsblad</td>
+		<td>Haarlem</td>
+		<td>1940</td>
+		<td>nature</td>
+	</tr>
+</table>
+
+<div class="footer">
+	<hr>
+	&nbsp;export:&nbsp;<select name="sort">
+		<option value="xml">xml</option>
+		<option value="json">json</option>
+		<option value="text">text</option>
+	</select>
+	filename:&nbsp;<input type="text" name="keywords" value="articles" size="50" onfocus="this.value=''"</input>
+	<br />
+</div>
