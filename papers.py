@@ -134,16 +134,12 @@ class Papers():
 	def add_articles(self,articles):
 		if type(articles) == Article: add_article(articles)
 		bar = pb.ProgressBar()
-		bar(range(len(self.papers)))
-		for i,p in enumerate(self.papers):
+		bar(range(len(articles)))
+		ids = [p.identifier for p in self.papers]
+		for i,a in enumerate(articles):
 			bar.update(i)
-			# temp = []
-			# for j,a in enumerate(articles):
-			# if a.paper_id == p.identifier: temp.append(articles.pop(j))
-			# temp = [a for a in articles if a.paper_id == p.identifier]
-			# if temp == []:continue
-			# p.add_articles(temp)
-			p.add_articles(articles)
+			index = ids.index(a.paper_id)
+			self.papers[index].add_article(a)
 
 	def add_article(self, article):
 			index = self.identifier2index[article.paper_id]
